@@ -1,6 +1,15 @@
+const express = require("express");
+const app = express();
 const {Telegraf} = require("telegraf");
 const axios = require("axios");
 const bot = new Telegraf('5634659107:AAFiHMRvRkdC0ANbJ2okW9BTo9xrXu91MoY');
+
+app.get('/',(req,res)=>{
+    res.send("This is Tai and English dictionary")
+})
+app.listen(process.env.PORT || 80,()=>{
+    console.log("server started with port 80")
+})
 
 bot.start((ctx)=>{
     const text = `Hello ${ctx.chat.first_name} ${ctx.chat.last_name},
